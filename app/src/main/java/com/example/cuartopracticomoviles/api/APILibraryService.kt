@@ -46,6 +46,7 @@ interface APILibraryService {
 
     @GET("generos")
     fun getGenres(): Call<Generos>
+
     /*@GET("generos/{id}")
     fun getGenreById(
         @Path("id") id: Int

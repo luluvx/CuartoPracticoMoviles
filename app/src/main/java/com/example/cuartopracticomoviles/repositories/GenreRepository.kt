@@ -14,8 +14,8 @@ object GenreRepository {
             retrofit.create(APILibraryService::class.java)
         service.getGenres().enqueue(object : Callback<Generos> {
             override fun onResponse(res: Call<Generos>, response: Response<Generos>) {
-                val genreList = response.body()
-                success(genreList)
+                val postList = response.body()
+                success(postList)
             }
 
             override fun onFailure(res: Call<Generos>, t: Throwable) {
