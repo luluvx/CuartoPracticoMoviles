@@ -47,14 +47,16 @@ interface APILibraryService {
     @GET("generos")
     fun getGenres(): Call<Generos>
 
-    /*@GET("generos/{id}")
+
+    @GET("generos/{id}")
     fun getGenreById(
         @Path("id") id: Int
-    ): Call<Generos?>
+    ): Call<Genero?>
     @POST("generos")
     fun insertGenre(
         @Body genero: Genero
-    ): Call<Generos>
+    ): Call<Genero>
+
     @PUT("generos/{id}")
     fun updateGenre(
         @Body genero: Genero,
@@ -63,7 +65,7 @@ interface APILibraryService {
     @DELETE("generos/{id}")
     fun deleteGenre(
         @Path("id") id: Int
-    ): Call<Void>*/
+    ): Call<Void>
 
 
 

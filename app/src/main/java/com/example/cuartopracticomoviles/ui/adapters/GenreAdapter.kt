@@ -42,6 +42,12 @@ class GenreAdapter(
             val binding = GeneroListItemBinding.bind(itemView)
             binding.apply {
                 lblNombreGenero.text = genero.nombre
+                btnEditarGenero.setOnClickListener {
+                    listener.onEditarGeneroClick(genero)
+                }
+                btnEliminarGenero.setOnClickListener {
+                    listener.onEliminarGeneroClick(genero)
+                }
                 root.setOnClickListener {
                     listener.onGeneroClick(genero)
                 }
@@ -52,5 +58,7 @@ class GenreAdapter(
 
     interface OnGeneroClickListener {
         fun onGeneroClick(genero: Genero)
+        fun onEditarGeneroClick(genero: Genero)
+        fun onEliminarGeneroClick(genero: Genero)
     }
 }

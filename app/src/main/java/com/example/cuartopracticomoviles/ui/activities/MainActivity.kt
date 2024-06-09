@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() ,BookAdapter.OnLibroClickListener{
         setupRecyclerView()
         setupViewModelListeners()
     }
+    override fun onResume() {
+        super.onResume()
+        model.fetchBooks()
+    }
 
     private fun setupEventListeners() {
         binding.fabAddBook.setOnClickListener {
@@ -46,10 +50,7 @@ class MainActivity : AppCompatActivity() ,BookAdapter.OnLibroClickListener{
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        model.fetchBooks()
-    }
+
 
     private fun setupViewModelListeners() {
         model.librosList.observe(this) {

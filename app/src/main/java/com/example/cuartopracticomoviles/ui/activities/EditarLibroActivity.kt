@@ -24,12 +24,14 @@ class EditarLibroActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setupEventListeners()
+        setupViewModelObservers()
+
         idLibro = intent.getIntExtra("libroId", -1)
         if (idLibro != -1) {
             model.loadLibro(idLibro)
         }
-        setupViewModelObservers()
-        setupEventListeners()
+
 
     }
 

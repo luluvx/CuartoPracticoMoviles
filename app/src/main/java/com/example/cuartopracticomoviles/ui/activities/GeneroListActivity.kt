@@ -1,5 +1,6 @@
 package com.example.cuartopracticomoviles.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -29,14 +30,24 @@ class GeneroListActivity : AppCompatActivity() , GenreAdapter.OnGeneroClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        setupEventListeners()
         setupRecyclerView()
         setupViewModelListeners()
 
     }
-
     override fun onResume() {
         super.onResume()
         model.fetchGeneroList()
+    }
+
+    private fun setupEventListeners() {
+        binding.fabAgregarGenero.setOnClickListener {
+            val intent = Intent(this, AgregarGeneroActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
     private fun setupViewModelListeners() {
@@ -56,5 +67,15 @@ class GeneroListActivity : AppCompatActivity() , GenreAdapter.OnGeneroClickListe
 
     override fun onGeneroClick(genero: Genero) {
 
+    }
+
+    override fun onEditarGeneroClick(genero: Genero) {
+        val intent = Intent(this, EditarGeneroActivity::class.java)
+        intent.putExtra("generoId", genero.id) // Asegúrate de que genero.id no es -1
+        startActivity(intent)
+    }
+
+    override fun onEliminarGeneroClick(genero: Genero) {
+        model.deleteGenero(genero.id)
     }
 }

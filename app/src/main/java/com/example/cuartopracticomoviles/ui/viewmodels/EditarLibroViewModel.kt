@@ -11,6 +11,7 @@ class EditarLibroViewModel: ViewModel(){
         MutableLiveData<Boolean>(false)
     }
     val closeActivity: MutableLiveData<Boolean> get() = _closeActivity
+
     private val _libro = MutableLiveData<Libro?>()
     val libro: LiveData<Libro?> get() = _libro
 
