@@ -1,5 +1,6 @@
 package com.example.cuartopracticomoviles.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -13,6 +14,7 @@ import com.example.cuartopracticomoviles.models.Libro
 import com.example.cuartopracticomoviles.ui.viewmodels.DetalleLibroViewModel
 
 class DetalleLibroActivity : AppCompatActivity() {
+    private var idLibro: Int = 0
     private lateinit var binding: ActivityDetalleLibroBinding
     private val model: DetalleLibroViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,13 +27,33 @@ class DetalleLibroActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val idLibro = intent.getIntExtra("libroId", -1)
+        idLibro = intent.getIntExtra("libroId", -1)
         if (idLibro != -1) {
             model.loadLibro(idLibro)
         }
-
+        setupEventListeners()
         setupViewModelObservers()
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        model.loadLibro(idLibro)
+    }
+
+    private fun setupEventListeners() {
+        binding.btnEditarLibro.setOnClickListener {
+            val intent = Intent(this, EditarLibroActivity::class.java)
+            intent.putExtra("libroId", idLibro)
+            startActivity(intent)
+
+        }
+        binding.btnEliminarLibro.setOnClickListener {
+            model.eliminarLibro(idLibro)
+            finish()
+        }
+    }
+
 
     private fun setupViewModelObservers() {
         model.libroObtenido.observe(this) {libroObtenido ->

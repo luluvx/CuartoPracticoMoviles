@@ -15,6 +15,12 @@
         android:theme="@style/Theme.CuartoPracticoMoviles"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.GeneroListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.EditarLibroActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.DetalleLibroActivity"
             android:exported="false" />
         <activity

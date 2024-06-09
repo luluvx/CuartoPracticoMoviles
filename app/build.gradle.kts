@@ -43,6 +43,9 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
 
+    implementation (libs.circleimageview)
+
+    implementation (libs.roundedimageview)
 
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)

@@ -15,6 +15,9 @@ class DetalleLibroViewModel : ViewModel(){
     val libroObtenido: LiveData<Libro?> get() = _libroObtenido
 
 
+
+
+
     fun loadLibro(idLibro: Int) {
         BookRepository.getBookById(idLibro,
             success = {
@@ -25,6 +28,17 @@ class DetalleLibroViewModel : ViewModel(){
             }
         )
 
+    }
+
+    fun eliminarLibro(idLibro: Int) {
+        BookRepository.deleteBook(idLibro,
+            success = {
+                _libroObtenido.value = null
+            },
+            failure = {
+                it.printStackTrace()
+            }
+        )
     }
 
 

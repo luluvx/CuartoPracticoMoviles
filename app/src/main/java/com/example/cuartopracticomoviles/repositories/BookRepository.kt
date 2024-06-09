@@ -81,4 +81,23 @@ object BookRepository {
             }
         })
     }
+    fun deleteBook(
+        id: Int,
+        success: () -> Unit,
+        failure: (Throwable) -> Unit
+    ) {
+        val retrofit = RetrofitRepository.getRetrofitInstance()
+
+        val service: APILibraryService =
+            retrofit.create(APILibraryService::class.java)
+        service.deleteBook(id).enqueue(object : Callback<Void> {
+            override fun onResponse(res: Call<Void>, response: Response<Void>) {
+                success()
+            }
+
+            override fun onFailure(res: Call<Void>, t: Throwable) {
+                failure(t)
+            }
+        })
+    }
 }

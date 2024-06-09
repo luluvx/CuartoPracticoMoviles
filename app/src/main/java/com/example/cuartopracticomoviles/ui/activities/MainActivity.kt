@@ -7,9 +7,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cuartopracticomoviles.R
 import com.example.cuartopracticomoviles.databinding.ActivityMainBinding
+import com.example.cuartopracticomoviles.models.Genero
 import com.example.cuartopracticomoviles.models.Libro
 import com.example.cuartopracticomoviles.models.Libros
 import com.example.cuartopracticomoviles.ui.adapters.BookAdapter
@@ -36,6 +38,10 @@ class MainActivity : AppCompatActivity() ,BookAdapter.OnLibroClickListener{
     private fun setupEventListeners() {
         binding.fabAddBook.setOnClickListener {
             val intent = Intent(this, AgregarLibroActivity::class.java)
+            startActivity(intent)
+        }
+        binding.fabShowGenres.setOnClickListener {
+            val intent = Intent(this, GeneroListActivity::class.java)
             startActivity(intent)
         }
     }

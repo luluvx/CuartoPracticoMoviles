@@ -47,6 +47,7 @@ class BookAdapter(
             val binding = LibroItemLayoutBinding.bind(itemView)
             binding.apply {
                 lblNombreLibro.text = libro.nombre
+                lblNombreAutor.text = libro.autor
                 Glide.with(itemView.context)
                     .load(libro.imagen)
                     .into(imgLibro)
