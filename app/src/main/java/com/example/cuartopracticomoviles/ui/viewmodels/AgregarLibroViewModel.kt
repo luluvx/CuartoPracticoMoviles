@@ -14,7 +14,7 @@ class AgregarLibroViewModel: ViewModel(){
     fun guardarLibro(libroGuardar: Libro) {
         BookRepository.insertBook(libroGuardar,
             success = {
-                      _closeActivity.value = true
+                _closeActivity.value = true
 
             },
             failure = {

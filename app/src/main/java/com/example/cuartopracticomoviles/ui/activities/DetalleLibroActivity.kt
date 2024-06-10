@@ -52,6 +52,11 @@ class DetalleLibroActivity : AppCompatActivity() {
             model.eliminarLibro(idLibro)
             finish()
         }
+        binding.btnAgregarLibroAgenero.setOnClickListener {
+            val intent = Intent(this, AgregarLibroAGeneroActivity::class.java)
+            intent.putExtra("libroId", idLibro)
+            startActivity(intent)
+        }
     }
 
 
@@ -73,13 +78,11 @@ class DetalleLibroActivity : AppCompatActivity() {
             lblShowEditorialLibro.text = libroObtenido.editorial
             lblShowCalificacionLibro.text = libroObtenido.calificacion.toString()
             lblShowIsbnLibro.text = libroObtenido.isbn
-            /*lblShowGeneroLibro.text = libroObtenido.genero*/
+            lblShowGeneros.text = libroObtenido.generos?.joinToString(", "){ it.nombre}
             lblShowSinopsisLibro.text = libroObtenido.sinopsis
             Glide.with(this@DetalleLibroActivity)
                 .load(libroObtenido.imagen)
                 .into(imgShowImagenLibro)
         }
     }
-
-
 }

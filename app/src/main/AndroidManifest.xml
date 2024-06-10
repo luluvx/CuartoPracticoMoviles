@@ -15,6 +15,15 @@
         android:theme="@style/Theme.CuartoPracticoMoviles"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activities.AgregarLibroAGeneroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.LibrosPorGeneroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.GeneroDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.AgregarGeneroActivity"
             android:exported="false" />
         <activity
@@ -31,9 +40,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.activities.AgregarLibroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activities.AddBookActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.MainActivity"

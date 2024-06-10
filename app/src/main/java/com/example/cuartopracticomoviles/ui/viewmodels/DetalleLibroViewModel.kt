@@ -8,14 +8,10 @@ import com.example.cuartopracticomoviles.repositories.BookRepository
 
 class DetalleLibroViewModel : ViewModel(){
 
-
     private val _libroObtenido: MutableLiveData<Libro?> by lazy {
         MutableLiveData<Libro?>(null)
     }
     val libroObtenido: LiveData<Libro?> get() = _libroObtenido
-
-
-
 
 
     fun loadLibro(idLibro: Int) {
@@ -27,7 +23,6 @@ class DetalleLibroViewModel : ViewModel(){
                 it.printStackTrace()
             }
         )
-
     }
 
     fun eliminarLibro(idLibro: Int) {
@@ -40,6 +35,4 @@ class DetalleLibroViewModel : ViewModel(){
             }
         )
     }
-
-
 }

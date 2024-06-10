@@ -56,8 +56,6 @@ class BookAdapter(
                 }
             }
         }
-
-
     }
     interface OnLibroClickListener{
         fun onLibroClick(libro: Libro)

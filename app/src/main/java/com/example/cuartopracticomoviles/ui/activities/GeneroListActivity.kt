@@ -13,6 +13,7 @@ import com.example.cuartopracticomoviles.R
 import com.example.cuartopracticomoviles.databinding.ActivityGeneroListBinding
 import com.example.cuartopracticomoviles.models.Genero
 import com.example.cuartopracticomoviles.models.Generos
+import com.example.cuartopracticomoviles.models.Libro
 import com.example.cuartopracticomoviles.ui.adapters.GenreAdapter
 import com.example.cuartopracticomoviles.ui.viewmodels.GeneroListViewModel
 
@@ -30,12 +31,9 @@ class GeneroListActivity : AppCompatActivity() , GenreAdapter.OnGeneroClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
         setupEventListeners()
         setupRecyclerView()
         setupViewModelListeners()
-
     }
     override fun onResume() {
         super.onResume()
@@ -66,12 +64,14 @@ class GeneroListActivity : AppCompatActivity() , GenreAdapter.OnGeneroClickListe
     }
 
     override fun onGeneroClick(genero: Genero) {
-
+        val intent = Intent(this, LibrosPorGeneroActivity::class.java)
+        intent.putExtra("generoId", genero.id)
+        startActivity(intent)
     }
 
     override fun onEditarGeneroClick(genero: Genero) {
         val intent = Intent(this, EditarGeneroActivity::class.java)
-        intent.putExtra("generoId", genero.id) // Asegúrate de que genero.id no es -1
+        intent.putExtra("generoId", genero.id)
         startActivity(intent)
     }
 

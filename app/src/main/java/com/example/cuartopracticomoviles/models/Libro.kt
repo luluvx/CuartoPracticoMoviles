@@ -15,8 +15,9 @@ data class Libro (
 
 ):Serializable{
     var id: Int? = null
-    var generos: List<Genero> = emptyList()
+    var generos: Generos? = null
     var createdAt: String? = null
     var updatedAt: String? = null
 
 }
+

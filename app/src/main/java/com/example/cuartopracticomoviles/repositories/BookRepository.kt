@@ -1,6 +1,7 @@
 package com.example.cuartopracticomoviles.repositories
 
 import com.example.cuartopracticomoviles.api.APILibraryService
+import com.example.cuartopracticomoviles.models.Generos
 import com.example.cuartopracticomoviles.models.Libro
 import com.example.cuartopracticomoviles.models.Libros
 import retrofit2.Call
@@ -8,6 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 object BookRepository {
+
     fun getBooksList(success: (Libros?) -> Unit, failure:(Throwable) -> Unit) {
         val retrofit = RetrofitRepository.getRetrofitInstance()
 
@@ -99,5 +101,24 @@ object BookRepository {
                 failure(t)
             }
         })
+    }
+    fun getBookGenres(
+        libroId: Int,
+        success: (Generos) -> Unit,
+        failure: (Throwable) -> Unit
+    ) {
+        getBooksList(
+            success = { libros ->
+                libros?.let {
+                    val libro = it.find { libro -> libro.id == libroId }
+                    libro?.let {
+                        success(libro.generos ?: Generos())
+                    } ?: failure(Throwable("Libro no encontrado"))
+                }
+            },
+            failure = {
+                it.printStackTrace()
+            }
+        )
     }
 }

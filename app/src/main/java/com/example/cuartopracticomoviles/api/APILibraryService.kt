@@ -7,6 +7,7 @@ import com.example.cuartopracticomoviles.models.Genero
 import com.example.cuartopracticomoviles.models.Libro
 
 import com.example.cuartopracticomoviles.models.Generos
+import com.example.cuartopracticomoviles.models.Pivot
 
 import com.example.cuartopracticomoviles.models.Libros
 
@@ -67,6 +68,9 @@ interface APILibraryService {
         @Path("id") id: Int
     ): Call<Void>
 
-
+    @POST("libro-generos")
+    fun insertBookGenre(
+        @Body pivot: Pivot
+    ): Call<Pivot>
 
 }

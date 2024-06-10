@@ -4,6 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.cuartopracticomoviles.models.Genero
 import com.example.cuartopracticomoviles.models.Generos
+import com.example.cuartopracticomoviles.models.Libro
+import com.example.cuartopracticomoviles.models.Libros
+import com.example.cuartopracticomoviles.repositories.BookRepository
 import com.example.cuartopracticomoviles.repositories.GenreRepository
 
 class GeneroListViewModel: ViewModel(){
@@ -11,6 +14,8 @@ class GeneroListViewModel: ViewModel(){
         MutableLiveData<Generos>(Generos())
     }
     val generoList: MutableLiveData<Generos> get() = _generoList
+
+
     fun fetchGeneroList(){
         GenreRepository.getGenreList(
             success = { generos ->
@@ -24,6 +29,7 @@ class GeneroListViewModel: ViewModel(){
         )
     }
 
+
     fun deleteGenero(idGenero: Int?) {
         GenreRepository.deleteGenre(idGenero!!,
             success = {
@@ -34,6 +40,8 @@ class GeneroListViewModel: ViewModel(){
             }
         )
     }
+
+
 
 
 }

@@ -50,8 +50,6 @@ class MainActivity : AppCompatActivity() ,BookAdapter.OnLibroClickListener{
         }
     }
 
-
-
     private fun setupViewModelListeners() {
         model.librosList.observe(this) {
             val adapter = (binding.lstBooks.adapter as BookAdapter)

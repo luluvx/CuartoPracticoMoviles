@@ -99,6 +99,21 @@
                 android:text="TextView" />
 
             <TextView
+                android:id="@+id/Generos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="Generos"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lblShowGeneros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="TextView" />
+
+            <TextView
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,31 +134,34 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnAgregarLibroAgenero"
+            android:layout_width="30dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
+            android:background="#BFEADDFF"
             app:srcCompat="@drawable/baseline_add_24" />
 
         <ImageButton
             android:id="@+id/btnEditarLibro"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/baseline_colorize_24" />
+            android:background="#B7EADDFF"
+            app:srcCompat="@drawable/baseline_auto_fix_normal_24" />
 
         <ImageButton
             android:id="@+id/btnEliminarLibro"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
+            android:background="#B7EADDFF"
             app:srcCompat="@drawable/baseline_auto_delete_24" />
     </LinearLayout>
 
